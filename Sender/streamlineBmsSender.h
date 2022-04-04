@@ -17,3 +17,4 @@ typedef struct batteryParam
 }senderInputParam;
 
 StreamlineBMSOutput readFromSenderTxt();
+int processData(int lines);
