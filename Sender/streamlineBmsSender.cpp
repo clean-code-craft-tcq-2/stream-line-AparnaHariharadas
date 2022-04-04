@@ -15,9 +15,10 @@ StreamlineBMSOutput  readFromSenderTxt(){
     stringstream   linestream(line);
     //std::getline(linestream, data, '\t');  // read up-to the first tab (discard tab).
     linestream >> Voltage >> Temperature;
-    linestream >> inputParameters.voltage >> inputParameters.temperature;
-    cout <<inputParameters.voltage <<inputParameters.temperature <<endl;
-    cout <<"VOLTTEMP" <<Voltage <<Temperature <<endl;
+    inputParameters.voltage = Voltage;
+    inputParameters.temperature = Temperature;
+    cout <<inputParameters.voltage <<", " <<inputParameters.temperature <<endl;
+   
    }
   inDataFileHandle.close();
    return E_OK;
