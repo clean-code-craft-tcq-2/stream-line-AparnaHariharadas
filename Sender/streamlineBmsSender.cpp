@@ -2,13 +2,13 @@
 
 
 
-StreamlineBMSOutput  readFromSenderTxt(string inputFile){
+StreamlineBMSOutput  readFromSenderTxt(){
   ifstream inDataFileHandle; 
   string line;
   senderInputParam inputParameters;
   float Voltage;
   float Temperature;
-  inDataFileHandle.open(inputFile);
+  inDataFileHandle.open("streamlineSender.txt");
    if(!inDataFileHandle)
       return E_NOT_OK;
   while ( getline(inDataFileHandle , line)) {
