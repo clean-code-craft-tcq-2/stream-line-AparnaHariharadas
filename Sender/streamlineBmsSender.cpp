@@ -1,5 +1,5 @@
 #include "streamlineBmsSender.h"
-using ifstream;
+
 
 
 StreamlineBMSOutput  readFromSenderTxt(string inputFile){
@@ -23,7 +23,8 @@ StreamlineBMSOutput  readFromSenderTxt(string inputFile){
 
 int processData()
 {
-  (void)readFromSenderTxt(lines);
+  StreamlineBMSOutput processOutput;
+  processOutput = readFromSenderTxt("streamlineSender.txt");
   return 1;
 }
      
