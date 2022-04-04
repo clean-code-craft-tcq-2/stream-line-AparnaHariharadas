@@ -19,6 +19,6 @@ typedef struct batteryParam
   float voltage[MAX_BMS_READ];
   float temperature[MAX_BMS_READ];
 }senderInputParam;
-//extern senderInputParam processOutputParam;
-StreamlineBMSOutput readFromSenderTxt();
+
+StreamlineBMSOutput readFromSenderTxt(string inputFile);
 StreamlineBMSOutput processData();
