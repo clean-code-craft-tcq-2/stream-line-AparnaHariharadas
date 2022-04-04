@@ -6,7 +6,7 @@
 #include<array>
 #include <fstream>
 using namespace std;
-
+#define MAX_BMS_READ 50
 
 typedef enum
 {
@@ -16,9 +16,9 @@ typedef enum
 
 typedef struct batteryParam
 {
-  float voltage;
-  float temperature;
+  float voltage[MAX_BMS_READ];
+  float temperature[MAX_BMS_READ];
 }senderInputParam;
-
+//extern senderInputParam processOutputParam;
 StreamlineBMSOutput readFromSenderTxt();
-int processData();
+StreamlineBMSOutput processData();
