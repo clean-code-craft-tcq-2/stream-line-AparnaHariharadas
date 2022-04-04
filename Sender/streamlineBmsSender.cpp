@@ -7,11 +7,11 @@ using std::ifstream;
 
 
 
-StreamlineBMSOutput readFromSenderTxt(string inputFileName){
+StreamlineBMSOutput readFromSenderTxt(){
   ifstream inDataFileHandle; 
   string line;
   senderInputParam inputParameters;
-  inDataFileHandle.open(inputFileName);
+  inDataFileHandle.open("streamlineSender.txt");
    if(!inDataFileHandle)
       return E_NOT_OK;
   while ( getline(inDataFileHandle , line)) {
