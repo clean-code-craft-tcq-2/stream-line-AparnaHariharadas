@@ -3,11 +3,10 @@
 #include <string.h>
 #include<array>
 #include <fstream>
-using ifstream;
+//using ifstream;
 
 
-
-StreamlineBMSOutput readFromSenderTxt(void){
+StreamlineBMSOutput  readFromSenderTxt(void){
   ifstream inDataFileHandle; 
   string line;
   senderInputParam inputParameters;
