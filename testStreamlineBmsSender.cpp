@@ -7,5 +7,5 @@
 TEST_CASE("Check whether sensor inputs are read from valid txt file") {
   //int CurrentRanges[] = {4,5};
   //int noOfcurrentReadings = sizeof(CurrentRanges)/sizeof(CurrentRanges[0]);
-  REQUIRE(readFromSenderTxt("Sender/streamlineSender.txt") == E_OK);
+  REQUIRE(readFromSenderTxt() == E_OK);
 }
