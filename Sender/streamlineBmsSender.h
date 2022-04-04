@@ -20,5 +20,5 @@ typedef struct batteryParam
   float temperature;
 }senderInputParam;
 
-StreamlineBMSOutput readFromSenderTxt(int num);
-int processData(int lines);
+StreamlineBMSOutput readFromSenderTxt(string num);
+int processData();
