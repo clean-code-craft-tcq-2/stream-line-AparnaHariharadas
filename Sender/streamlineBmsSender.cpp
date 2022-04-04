@@ -6,7 +6,7 @@
 //using ifstream;
 
 
-StreamlineBMSOutput  readFromSenderTxt(void){
+StreamlineBMSOutput  readFromSenderTxt(int num){
   ifstream inDataFileHandle; 
   string line;
   senderInputParam inputParameters;
@@ -17,9 +17,14 @@ StreamlineBMSOutput  readFromSenderTxt(void){
     stringstream   linestream(line);
     //std::getline(linestream, data, '\t');  // read up-to the first tab (discard tab).
     linestream >> inputParameters.voltage >> inputParameters.temperature;
-    cout << inputParameters.voltage << inputParameters.temperature <<endl;
+    cout << inputParameters.voltage << inputParameters.temperature << num <<endl;
    }
    return E_OK;
 }
-    
+
+int processData(int lines)
+{
+  (void)readFromSenderTxt(lines);
+  return 1;
+}
      
