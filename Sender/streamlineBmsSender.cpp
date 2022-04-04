@@ -7,7 +7,7 @@ using std::ifstream;
 
 
 
-StreamlineBMSOutput readFromSenderTxt(){
+StreamlineBMSOutput readFromSenderTxt(void){
   ifstream inDataFileHandle; 
   string line;
   senderInputParam inputParameters;
