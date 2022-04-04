@@ -6,6 +6,7 @@
 
 TEST_CASE("Check whether sensor inputs are read from valid txt file") {
   REQUIRE(readFromSenderTxt("./Sender/streamlineSender.txt") == E_OK);
+  REQUIRE(readFromSenderTxt("./Sender/lineSender.txt") == E_NOT_OK);
 }
 
 TEST_CASE("Process sensor input and output in CSV format") {
