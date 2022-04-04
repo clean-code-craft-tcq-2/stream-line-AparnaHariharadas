@@ -19,6 +19,7 @@ StreamlineBMSOutput  readFromSenderTxt(){
     cout <<inputParameters.voltage <<inputParameters.temperature <<endl;
     cout <<"VOLTTEMP" <<Voltage <<Temperature <<endl;
    }
+  inDataFileHandle.close();
    return E_OK;
 }
 
