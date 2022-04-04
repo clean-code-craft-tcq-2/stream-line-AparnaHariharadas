@@ -25,7 +25,7 @@ StreamlineBMSOutput  readFromSenderTxt(){
 int processData()
 {
   StreamlineBMSOutput processOutput;
-  processOutput = readFromSenderTxt("streamlineSender.txt");
+  processOutput = readFromSenderTxt();
   return 1;
 }
      
