@@ -2,7 +2,7 @@
 #define CATCH_CONFIG_MAIN 
 
 #include "test/catch.hpp"
-#include "streamlineBmsSender.h"
+#include "Sender/streamlineBmsSender.h"
 
 TEST_CASE("Check whether sensor inputs are read from valid txt file") {
   //int CurrentRanges[] = {4,5};
