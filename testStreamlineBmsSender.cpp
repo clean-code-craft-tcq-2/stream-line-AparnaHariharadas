@@ -8,5 +8,6 @@ TEST_CASE("Check whether sensor inputs are read from valid txt file") {
   //int CurrentRanges[] = {4,5};
   //int noOfcurrentReadings = sizeof(CurrentRanges)/sizeof(CurrentRanges[0]);
   REQUIRE(readFromSenderTxt() == E_OK);
+  REQUIRE(processData() == E_OK);
   //REQUIRE(processData() == 1);
 }
