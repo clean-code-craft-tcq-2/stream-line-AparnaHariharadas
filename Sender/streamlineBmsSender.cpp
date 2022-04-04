@@ -1,8 +1,4 @@
 #include "streamlineBmsSender.h"
-#include <sstream> // for ostringstream
-#include <string.h>
-#include<array>
-#include <fstream>
 //using ifstream;
 
 
