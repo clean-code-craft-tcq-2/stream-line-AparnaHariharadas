@@ -10,7 +10,7 @@ typedef enum
 	E_OK
 }StreamlineBMSOutput;
 
-typede struct batteryParam
+typedef struct batteryParam
 {
   float voltage;
   float temperature;
