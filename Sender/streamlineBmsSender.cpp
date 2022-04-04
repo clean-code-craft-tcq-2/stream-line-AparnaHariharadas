@@ -28,7 +28,7 @@ void printToConsole(float voltage, float temperature){
 
 StreamlineBMSOutput processData()
 {
-  processOutput = readFromSenderTxt();
+  StreamlineBMSOutput processOutput = readFromSenderTxt();
   for(int loop = 0; loop < MAX_BMS_READ; loop++)
   {
     printToConsole(processOutputParam.voltage[loop], processOutputParam.temperature[loop]);
