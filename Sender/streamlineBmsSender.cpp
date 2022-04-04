@@ -6,7 +6,8 @@ StreamlineBMSOutput  readFromSenderTxt(string inputFile){
   ifstream inDataFileHandle; 
   string line;
   senderInputParam inputParameters;
-  float Voltage, Temperature
+  float Voltage;
+  float Temperature;
   inDataFileHandle.open(inputFile);
    if(!inDataFileHandle)
       return E_NOT_OK;
