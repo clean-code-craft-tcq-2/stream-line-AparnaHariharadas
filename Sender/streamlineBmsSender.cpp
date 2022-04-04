@@ -3,7 +3,7 @@
 #include <string.h>
 #include<array>
 #include <fstream>
-using std::ifstream;
+using ifstream;
 
 
 
