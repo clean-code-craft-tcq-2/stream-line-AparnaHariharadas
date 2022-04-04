@@ -3,3 +3,9 @@
 
 #include "test/catch.hpp"
 #include "Sender/streamlineBmsSender.h"
+
+TEST_CASE("Check whether sensor inputs are read from valid txt file") {
+  //int CurrentRanges[] = {4,5};
+  //int noOfcurrentReadings = sizeof(CurrentRanges)/sizeof(CurrentRanges[0]);
+  REQUIRE(readFromSenderTxt(streamlineSender.txt) == E_OK);
+}
