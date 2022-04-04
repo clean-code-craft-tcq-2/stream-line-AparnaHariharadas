@@ -5,9 +5,9 @@
 #include "Sender/streamlineBmsSender.h"
 
 TEST_CASE("Check whether sensor inputs are read from valid txt file") {
-  //int CurrentRanges[] = {4,5};
-  //int noOfcurrentReadings = sizeof(CurrentRanges)/sizeof(CurrentRanges[0]);
-  REQUIRE(readFromSenderTxt() == E_OK);
+  REQUIRE(readFromSenderTxt("./Sender/streamlineSender.txt") == E_OK);
+}
+
+TEST_CASE("Process sensor input and output in CSV format") {
   REQUIRE(processData() == E_OK);
-  //REQUIRE(processData() == 1);
 }
