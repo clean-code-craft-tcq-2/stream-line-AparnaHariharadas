@@ -1,33 +1,39 @@
 #include "streamlineBmsSender.h"
-
+senderInputParam processOutputParam;
 
 
 StreamlineBMSOutput  readFromSenderTxt(){
   ifstream inDataFileHandle; 
   string line;
-  senderInputParam inputParameters;
   float Voltage;
   float Temperature;
+  int index = 0;
   inDataFileHandle.open("./Sender/streamlineSender.txt");
    if(!inDataFileHandle)
       return E_NOT_OK;
   while ( getline(inDataFileHandle , line)) {
     stringstream   linestream(line);
-    //std::getline(linestream, data, '\t');  // read up-to the first tab (discard tab).
     linestream >> Voltage >> Temperature;
-    inputParameters.voltage = Voltage;
-    inputParameters.temperature = Temperature;
-    cout <<inputParameters.voltage <<", " <<inputParameters.temperature <<endl;
-   
+    processOutputParam.voltage[index] = Voltage;
+    processOutputParam.temperature[index] = Temperature;
+    index++;
    }
   inDataFileHandle.close();
    return E_OK;
 }
 
-int processData()
-{
-  StreamlineBMSOutput processOutput;
-  processOutput = readFromSenderTxt();
-  return 1;
+void printToConsole(float voltage, float temperature){
+  cout << voltage <<", " <<temperature <<endl;
 }
-     
+
+StreamlineBMSOutput processData()
+{
+  processOutput = readFromSenderTxt();
+  for(loop = 0; loop < MAX_BMS_READ; loop++)
+  {
+    printToConsole(processOutputParam.voltage[loop], processOutputParam.temperature[loop]);
+    
+  }
+  return processOutput;
+}
+    
