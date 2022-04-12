@@ -15,16 +15,16 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y gcovr
         
-    - name: build senderTest
+    - name: build_senderTest
       run: g++ -Wall -Wextra -fprofile-arcs -ftest-coverage -o senderTest  ./testStreamlineBmsSender.cpp ./Sender/streamlineBmsSender.cpp
            
-    - name: run
+    - name: run_senderTest
       run: ./senderTest
       
-    - name: build senderMain
+    - name: build_senderMain
       run: g++ -Wall -Wextra -fprofile-arcs -ftest-coverage -o senderMain  ./Sender/*.c*
            
-    - name: run
+    - name: run_senderMain
       run: ./senderMain
 
     - name: collect coverage
