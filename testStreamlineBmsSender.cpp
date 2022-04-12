@@ -10,11 +10,10 @@ TEST_CASE("Check whether sensor inputs are read from valid txt file") {
 }
 
 TEST_CASE("Process sensor input and output in CSV format") {
-  char cpyConsoleData[5000];
   REQUIRE(processData(cpyConsoleData) == E_OK);
 }
 
-TEST_CASE("check if the output is imn CSV format")
+/*TEST_CASE("check if the output is in CSV format")
 {
   char cpyConsoleData[5000];
   //char resultConsoleData[2];
@@ -22,4 +21,4 @@ TEST_CASE("check if the output is imn CSV format")
    REQUIRE(processData(cpyConsoleData) == E_OK);
   //strcpy(resultConsoleData,cpyConsoleData[0]);
   //REQUIRE(strcmp(resultConsoleData, ExpectedOutput) == 0);
-}
+}*/
