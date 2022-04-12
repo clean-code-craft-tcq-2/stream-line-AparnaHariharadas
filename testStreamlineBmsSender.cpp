@@ -17,8 +17,8 @@ TEST_CASE("Process sensor input and output in CSV format") {
 TEST_CASE("check if the output is imn CSV format")
 {
   char cpyConsoleData[200];
-  char ExpectedOutput[]= "30, 90\n45, 60\n";
+  char ExpectedOutput[]= "30, 90\n";
   processData(cpyConsoleData);
-  //strcpy(resultConsoleData,cpyConsoleData[0]+cpyConsoleData[1]);
+  strcpy(resultConsoleData,cpyConsoleData[0]);
   REQUIRE(strcmp(cpyConsoleData, ExpectedOutput) == 0);
 }
