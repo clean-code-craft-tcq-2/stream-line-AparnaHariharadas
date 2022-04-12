@@ -21,4 +21,4 @@ typedef struct batteryParam
 }senderInputParam;
 
 StreamlineBMSOutput readFromSenderTxt(string inputFile);
-StreamlineBMSOutput processData();
+StreamlineBMSOutput processData(char* copyConsoleOutput);
