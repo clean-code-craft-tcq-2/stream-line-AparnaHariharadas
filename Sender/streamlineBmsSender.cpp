@@ -33,7 +33,7 @@ void printToConsole(float voltage, float temperature)
 StreamlineBMSOutput processData(char* copyConsoleOutput)
 {
   StreamlineBMSOutput processOutput = readFromSenderTxt("./Sender/streamlineSender.txt");
-  ostringsream cpyOutput;
+  ostringstream cpyOutput;
   for(int loop = 0; loop < MAX_BMS_READ; loop++)
   {
     printToConsole(processOutputParam.voltage[loop], processOutputParam.temperature[loop]);
