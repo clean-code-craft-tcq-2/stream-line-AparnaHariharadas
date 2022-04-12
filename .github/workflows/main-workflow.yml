@@ -15,11 +15,17 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y gcovr
         
-    - name: build
-      run: g++ -Wall -Wextra -fprofile-arcs -ftest-coverage -o testchecker ./*.c* ./Sender/*.c*
-
+    - name: build senderTest
+      run: g++ -Wall -Wextra -fprofile-arcs -ftest-coverage -o senderTest  ./testStreamlineBmsSender.cpp ./Sender/streamlineBmsSender.cpp
+           
     - name: run
-      run: ./testchecker
+      run: ./senderTest
+      
+    - name: build senderMain
+      run: g++ -Wall -Wextra -fprofile-arcs -ftest-coverage -o senderMain  ./Sender/*.c*
+           
+    - name: run
+      run: ./senderMain
 
     - name: collect coverage
       run: gcovr --gcov-exclude=".*test.*" -r . --html --html-details -o coverage.html --print-summary
