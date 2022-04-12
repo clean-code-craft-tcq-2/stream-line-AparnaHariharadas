@@ -22,6 +22,6 @@ TEST_CASE("check if the output is imn CSV format")
   int NumOfValuesToBeGenerated = 10;
 
   processData(cpyConsoleData);
-  strycpy(resultConsoleData,cpyConsoleData[0]+cpyConsoleData[1]);
+  strcpy(resultConsoleData,cpyConsoleData[0]+cpyConsoleData[1]);
   REQUIRE(strcmp(resultConsoleData, ExpectedOutput) == 0);
 }
