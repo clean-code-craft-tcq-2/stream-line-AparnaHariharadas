@@ -10,13 +10,13 @@ TEST_CASE("Check whether sensor inputs are read from valid txt file") {
 }
 
 TEST_CASE("Process sensor input and output in CSV format") {
-  char cpyConsoleData[200];
+  char cpyConsoleData[5000];
   REQUIRE(processData(cpyConsoleData) == E_OK);
 }
 
 TEST_CASE("check if the output is imn CSV format")
 {
-  char cpyConsoleData[200];
+  char cpyConsoleData[5000];
   //char resultConsoleData[2];
   //char ExpectedOutput[]= "30, 90\n";
    REQUIRE(processData(cpyConsoleData) == E_OK);
