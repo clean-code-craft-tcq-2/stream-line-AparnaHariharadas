@@ -30,7 +30,7 @@ void printToConsole(float voltage, float temperature)
   cout << voltage <<", " <<temperature <<endl;
 }
 
-StreamlineBMSOutput processData(char* copyConsoleOutput)
+StreamlineBMSOutput processData(string copyConsoleOutput)
 {
   StreamlineBMSOutput processOutput = readFromSenderTxt("./Sender/streamlineSender.txt");
   ostringstream cpyOutput;
