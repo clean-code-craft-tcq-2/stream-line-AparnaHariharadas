@@ -33,11 +33,13 @@ void printToConsole(float voltage, float temperature)
 StreamlineBMSOutput processData(char* copyConsoleOutput)
 {
   StreamlineBMSOutput processOutput = readFromSenderTxt("./Sender/streamlineSender.txt");
+  ostringsream cpyOutput;
   for(int loop = 0; loop < MAX_BMS_READ; loop++)
   {
     printToConsole(processOutputParam.voltage[loop], processOutputParam.temperature[loop]);
-    strcpy(copyConsoleOutput, to_string(processOutputParam.voltage[loop]) +", " + to_string(processOutputParam.temperature[loop]) + "\n");
-    cout << copyConsoleOutput << copyConsoleOutput <<endl;
+    cpyOutput << processOutputParam.voltage[loop] +", " + processOutputParam.temperature[loop]+ "\n";
+    strcat(copyConsoleOutput, cpyOutput.str());
+    cout << "copyConsoleOutput" << copyConsoleOutput <<endl;
     
   }
   return processOutput;
