@@ -10,7 +10,7 @@ TEST_CASE("Check whether sensor inputs are read from valid txt file") {
 }
 
 TEST_CASE("Process sensor input and output in CSV format") {
-  REQUIRE(processData(cpyConsoleData) == E_OK);
+  REQUIRE(processData() == E_OK);
 }
 
 /*TEST_CASE("check if the output is in CSV format")
