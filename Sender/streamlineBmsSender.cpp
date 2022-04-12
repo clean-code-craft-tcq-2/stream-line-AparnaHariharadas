@@ -40,7 +40,7 @@ StreamlineBMSOutput processData(char* copyConsoleOutput)
     cpyOutput << processOutputParam.voltage[loop] << ", " << processOutputParam.temperature[loop] <<"\n";
     string consoleOpt = cpyOutput.str();
     strcat(copyConsoleOutput,consoleOpt.c_str());
-    cout << "copyConsoleOutput" << copyConsoleOutput <<endl;
+    //cout << "copyConsoleOutput" << copyConsoleOutput <<endl;
     
   }
   return processOutput;
