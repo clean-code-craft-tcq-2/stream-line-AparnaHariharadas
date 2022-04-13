@@ -24,19 +24,12 @@ jobs:
     - name: build_senderMain
       run: g++ -Wall -Wextra -fprofile-arcs -ftest-coverage -o senderMain  Sender/*.c*
            
-    - name: run_senderMain
-      run: ./senderMain > SenderCheck.txt
+    #- name: run_senderMain
+     # run: ./senderMain > SenderCheck.txt
       
     - name: collect coverage
       run: gcovr --gcov-exclude=".*test.*" -r . --html --html-details -o coverage.html --print-summary
     
-    - name: 'Upload SenderCheck.txt'
-      uses: actions/upload-artifact@v2
-      with:
-        name: SenderCheck.txt
-        path: ./*.txt
-        retention-days: 10
-        
     - name: 'Upload Artifact'
       uses: actions/upload-artifact@v2
       with:
