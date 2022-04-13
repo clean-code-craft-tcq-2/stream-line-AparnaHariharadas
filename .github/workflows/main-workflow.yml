@@ -31,7 +31,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: SenderCheck.txt
-        path: ./Sender/*.txt
+        path: ./*.txt
         retention-days: 10
 
     - name: collect coverage
