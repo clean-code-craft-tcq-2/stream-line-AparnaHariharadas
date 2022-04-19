@@ -16,6 +16,7 @@ typedef struct{
     int NumberOfValuesInStream;
 }BmsStatisticsStructType;
 
+extern int ReadFromConsole(float* CurrentInAmp, float* TempInDegC);
 extern void shiftValues(float* array);
 extern void computeMovingAverage(float value, BmsStatisticsStructType* Param);
 extern void ResetToDefault(BmsStatisticsStructType* Param);
