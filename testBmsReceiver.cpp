@@ -1,7 +1,7 @@
 #define CATCH_CONFIG_MAIN 
 
 #include "test/catch.hpp"
-#include "Receiver/PerformBmsStatistics.h",
+#include "Receiver/PerformBmsStatistics.h"
 
 int ReadFromConsoleStub(float* CurrentInAmp, float* TempInDegC)
 {
@@ -28,7 +28,6 @@ TEST_CASE("Read from the console (Sender) and print statistics for 10 samples")
     char printChar[1000];
     unsigned int NumberOfBmsParameters = 2; // Current, Temperature
     BmsStatisticsStructType BmsParam[NumberOfBmsParameters];
-    unsigned int SizeofDataRead = 0;
 
     ReadAndPerformBmsStatistics(printChar, BmsParam, NumberOfBmsParameters, (*ReadFromConsoleStub)); //FUT
     
@@ -51,5 +50,5 @@ TEST_CASE("Read from the console (Sender) and print statistics for 10 samples")
                                     1.5, 8.5, 7.3, 10.5, 17.5, 7.7\n\
                                     1.5, 9.5, 8.3, 10.5, 18.5, 8.7\n\
                                     1.5, 10.5, 9.3, 10.5, 19.5, 9.7\n"};
-    REQUIRE(printChar);
+    REQUIRE(strcmp(printChar, expectedOutput) == 0);
 }
