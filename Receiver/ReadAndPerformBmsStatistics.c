@@ -49,8 +49,9 @@ void computeMovingAverage(float value, BmsStatisticsStructType* Param)
     }
 }
 
-void ResetToDefault(BmsStatisticsStructType* Param)
+void ResetToDefault(char* ToConsole, BmsStatisticsStructType* Param)
 {
+    char localString[200] = {"MinCurrent, MaxCurrent, AvgCurrent, MinTemperature, MaxTemperature, AvgTemperature\n"};
     Param->MaxValue = FLT_MIN;
     Param->MinValue = FLT_MAX;
     Param->MovingAvg = 0;
@@ -60,14 +61,14 @@ void ResetToDefault(BmsStatisticsStructType* Param)
     {
         Param->PreviousValuesForMovingAvg[i] = 0;
     }
+    strcat(ToConsole, localString); // copy the header first
 }
 
 void outputBmsParametersToConsole(char* ToConsole, BmsStatisticsStructType* CurrentParam, BmsStatisticsStructType* TempParam)
 {
-    char localString[200] = {"MinCurrent, MaxCurrent, AvgCurrent, MinTemperature, MaxTemperature, AvgTemperature\n"};
-
-    strcat(ToConsole, localString); // copy the header first
-    sprintf(localString, "%f, %f, %f, %f, %f, %f\n", CurrentParam->MinValue, CurrentParam->MaxValue, CurrentParam->MovingAvg, 
+    char localString[200];
+    
+    sprintf(localString, "%0.2f, %0.2f, %0.2f, %0.2f, %0.2f, %0.2f\n", CurrentParam->MinValue, CurrentParam->MaxValue, CurrentParam->MovingAvg, 
                                                     TempParam->MinValue, TempParam->MaxValue, TempParam->MovingAvg);
     strcat(ToConsole, localString);
 }
