@@ -18,5 +18,5 @@ typedef struct{
 
 extern void shiftValues(float* array);
 extern void computeMovingAverage(float value, BmsStatisticsStructType* Param);
-extern void ResetToDefault(char* ToConsole, BmsStatisticsStructType* Param)
+extern void ResetToDefault(char* ToConsole, BmsStatisticsStructType* Param);
 extern void ReadAndPerformBmsStatistics(char* ToConsole, BmsStatisticsStructType* BmsParam, unsigned int NumberOfBmsParameters, int (*ReadInput)(float*, float*));
