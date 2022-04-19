@@ -1,6 +1,6 @@
 #include "PerformBmsStatistics.h"
 
-static int ReadFromConsole(float* CurrentInAmp, float* TempInDegC)
+int ReadFromConsole(float* CurrentInAmp, float* TempInDegC)
 {
     return scanf("%f, %f", CurrentInAmp, TempInDegC);
 }
