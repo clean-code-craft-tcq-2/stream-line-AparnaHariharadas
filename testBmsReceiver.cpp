@@ -50,5 +50,7 @@ TEST_CASE("Read from the console (Sender) and print statistics for 10 samples")
                                     1.5, 8.5, 7.3, 10.5, 17.5, 7.7\n\
                                     1.5, 9.5, 8.3, 10.5, 18.5, 8.7\n\
                                     1.5, 10.5, 9.3, 10.5, 19.5, 9.7\n"};
+    printf("%s\n",printChar);
+    printf("%s\n",expectedOutput);
     REQUIRE(strcmp(printChar, expectedOutput) == 0);
 }
