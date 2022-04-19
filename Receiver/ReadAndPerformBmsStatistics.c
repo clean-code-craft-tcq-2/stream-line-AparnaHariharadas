@@ -49,9 +49,8 @@ void computeMovingAverage(float value, BmsStatisticsStructType* Param)
     }
 }
 
-void ResetToDefault(char* ToConsole, BmsStatisticsStructType* Param)
+void ResetToDefault(BmsStatisticsStructType* Param)
 {
-    char localString[200] = {"MinCurrent, MaxCurrent, AvgCurrent, MinTemperature, MaxTemperature, AvgTemperature\n"};
     Param->MaxValue = FLT_MIN;
     Param->MinValue = FLT_MAX;
     Param->MovingAvg = 0;
@@ -61,7 +60,6 @@ void ResetToDefault(char* ToConsole, BmsStatisticsStructType* Param)
     {
         Param->PreviousValuesForMovingAvg[i] = 0;
     }
-    strcat(ToConsole, localString); // copy the header first
 }
 
 void outputBmsParametersToConsole(char* ToConsole, BmsStatisticsStructType* CurrentParam, BmsStatisticsStructType* TempParam)
@@ -78,12 +76,14 @@ void ReadAndPerformBmsStatistics(char* ToConsole, BmsStatisticsStructType* BmsPa
     float BmsValues[NumberOfBmsParameters];
     int NumberOfDataReadFromConsole = 0;
     unsigned int index = 0;
+    char localString[200] = {"MinCurrent, MaxCurrent, AvgCurrent, MinTemperature, MaxTemperature, AvgTemperature\n"};
 
     // Reset the param to default values
     for(index = 0; index < NumberOfBmsParameters; index++)
     {
         ResetToDefault(&BmsParam[index]);
     }
+    strcat(ToConsole, localString); // copy the header first
 
     do{
         NumberOfDataReadFromConsole = (*ReadInput)(&BmsValues[0], &BmsValues[1]);
