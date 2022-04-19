@@ -75,10 +75,8 @@ void outputBmsParametersToConsole(char* ToConsole, BmsStatisticsStructType* Curr
 void ReadAndPerformBmsStatistics(char* ToConsole, BmsStatisticsStructType* BmsParam, unsigned int NumberOfBmsParameters, int (*ReadInput)(float*, float*))
 {
     float BmsValues[NumberOfBmsParameters];
-    
-    float PreviousValuesForMovingAvg_Temp[MIN_NUMBER_OF_VALUES_FOR_MOVING_AVG];
     int NumberOfDataReadFromConsole = 0;
-    int index = 0;
+    unsigned int index = 0;
 
     // Reset the param to default values
     for(index = 0; index < NumberOfBmsParameters; index++)
@@ -92,10 +90,10 @@ void ReadAndPerformBmsStatistics(char* ToConsole, BmsStatisticsStructType* BmsPa
         {
             BmsParam[index].NumberOfValuesInStream++;
             computeMin(BmsValues[index], &BmsParam[index].MinValue);
-            computeMin(BmsValues[index], &BmsParam[index].MinValue);
+            computeMax(BmsValues[index], &BmsParam[index].MaxValue);
             computeMovingAverage(BmsValues[index],  &BmsParam[index]);
         }
-        outputBmsParametersToConsole(ToConsole, &BmsValues[0], &BmsValues[1]);
+        outputBmsParametersToConsole(ToConsole, &BmsParam[0], &BmsParam[1]);
     }
     while(NumberOfDataReadFromConsole > 0);
 }
