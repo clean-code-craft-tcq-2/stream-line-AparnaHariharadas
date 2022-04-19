@@ -49,7 +49,7 @@ TEST_CASE("Read from the console (Sender) and print statistics for 10 samples")
     1.50, 7.50, 5.50, 10.50, 16.50, 6.30\n\
     1.50, 8.50, 6.50, 10.50, 17.50, 7.30\n\
     1.50, 9.50, 7.50, 10.50, 18.50, 8.30\n\
-    1.50, 10.50, 8.50, 10.50, 19.50, 9.30\n};
+    1.50, 10.50, 8.50, 10.50, 19.50, 9.30\n"};
     printf("%s\n",printChar);
     printf("%s\n",expectedOutput);
     REQUIRE(strcmp(printChar, expectedOutput) == 0);
