@@ -25,7 +25,7 @@ jobs:
       run: g++ -Wall -Wextra -fprofile-arcs -ftest-coverage -o senderMain  Sender/*.c*
            
     - name: run_senderMain
-      run: ./senderMain > SenderCheck.txt
+      run: ./senderMain
 
     - name: build_ReceiverTest
       run: g++ -Wall -Wextra -fprofile-arcs -ftest-coverage -o ReceiverTest  testBmsReceiver.cpp Receiver/ReadAndPerformBmsStatistics.c
