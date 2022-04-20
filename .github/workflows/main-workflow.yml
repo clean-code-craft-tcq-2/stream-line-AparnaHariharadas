@@ -22,7 +22,7 @@ jobs:
       run: ./senderTest
       
     - name: build_senderMain
-      run: g++ -Wall -Wextra -fprofile-arcs -ftest-coverage -o senderMain  Sender/*.c*
+      run: g++ -Wall -Wextra -fprofile-arcs -ftest-coverage -o senderMain  Sender/*.cpp
            
     - name: run_senderMain
       run: ./senderMain
