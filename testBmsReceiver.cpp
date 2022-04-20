@@ -3,25 +3,6 @@
 #include "test/catch.hpp"
 #include "Receiver/PerformBmsStatistics.h"
 
-int ReadFromConsoleStub(float* CurrentInAmp, float* TempInDegC)
-{
-    static int NumberOfSamples = 0;
-
-    *CurrentInAmp = 1.5 + NumberOfSamples;
-    *TempInDegC = 10.5 + NumberOfSamples;
-    NumberOfSamples++;
-
-    if(NumberOfSamples >= 10)
-    {
-        NumberOfSamples = 0;
-        return 0; // end the loop after 10 samples
-    }
-    else
-    {
-        return 2;
-    }
-    
-}
 
 TEST_CASE("Read from the console (Sender) and print statistics for 10 samples")
 {
@@ -29,8 +10,11 @@ TEST_CASE("Read from the console (Sender) and print statistics for 10 samples")
     unsigned int NumberOfBmsParameters = 2; // Current, Temperature
     BmsStatisticsStructType BmsParam[NumberOfBmsParameters];
     memset(printChar, 0, sizeof(printChar));
+    
+    FILE * ptrToTestFile = NULL;
+    ptrToTestFile = fopen("testFile.txt","r");
 
-    ReadAndPerformBmsStatistics(printChar, BmsParam, NumberOfBmsParameters, (*ReadFromConsoleStub)); //FUT
+    ReadAndPerformBmsStatistics(ptrToTestFile, printChar, BmsParam, NumberOfBmsParameters); //FUT
     
     //Checking parameters after 10 samples are received
     REQUIRE(BmsParam[0].MaxValue == 10.5); //Max current
