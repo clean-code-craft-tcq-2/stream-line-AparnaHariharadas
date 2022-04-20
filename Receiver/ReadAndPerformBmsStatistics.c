@@ -2,7 +2,7 @@
 
 int ReadFromConsole(float* CurrentInAmp, float* TempInDegC)
 {
-   FILE * pSenderFile == NULL;
+   FILE * pSenderFile = NULL;
    char SenderString[1000];
    static int Breaki = 0;
 
@@ -10,6 +10,7 @@ int ReadFromConsole(float* CurrentInAmp, float* TempInDegC)
    if (pSenderFile == NULL)
    {
        perror ("Error opening file");
+       return 0;
    }
    else 
    {
