@@ -1,0 +1,50 @@
+name: Build and Run
+
+on: [push, pull_request]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: install coverage tool
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y gcovr
+        
+    - name: build_senderTest
+      run: g++ -Wall -Wextra -fprofile-arcs -ftest-coverage -o senderTest  testStreamlineBmsSender.cpp Sender/streamlineBmsSender.cpp
+           
+    - name: run_senderTest
+      run: ./senderTest > SenderCheck.txt
+      
+    #- name: build_senderMain
+      #run: g++ -Wall -Wextra -fprofile-arcs -ftest-coverage -o senderMain  Sender/*.cpp
+           
+    #- name: run_senderMain
+      #run: ./senderMain
+
+    - name: build_ReceiverTest
+      run: g++ -Wall -Wextra -fprofile-arcs -ftest-coverage -o ReceiverTest  testBmsReceiver.cpp Receiver/ReadAndPerformBmsStatistics.c
+
+    - name: run_ReceiverTest
+      run: ./ReceiverTest
+      
+    - name: build_ReceiverMain
+      run: g++ -Wall -Wextra -fprofile-arcs -ftest-coverage -o ReceiverMain  BmsReceiverMain.c Receiver/ReadAndPerformBmsStatistics.c
+      
+    - name: pipe_sender_receiver_executables
+      run: ./ReceiverMain < SenderCheck.txt
+      
+    - name: collect coverage
+      run: gcovr --gcov-exclude=".*test.*" -r . --html --html-details -o coverage.html --print-summary
+    
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v2
+      with:
+        name: coverage
+        path: ./*.html
+        retention-days: 90
