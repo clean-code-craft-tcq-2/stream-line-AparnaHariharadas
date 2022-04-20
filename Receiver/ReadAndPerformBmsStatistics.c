@@ -2,9 +2,43 @@
 
 int ReadFromConsole(float* CurrentInAmp, float* TempInDegC)
 {
+   FILE * pSenderFile == NULL;
+   char SenderString[1000];
+   static int Breaki = 0;
+
+   pSenderFile = fopen ("SenderCheck.txt" , "r");
+   if (pSenderFile == NULL)
+   {
+       perror ("Error opening file");
+   }
+   else 
+   {
+     if (fgets (SenderString , (sizeof(SenderString)/sizeof(SenderString[0])) , pSenderFile) != NULL )
+     {
+         printf("%s", SenderString);
+         Breaki++;
+         if(Breaki >= 5)
+         {
+             fclose (pSenderFile);
+             return 0;
+         }
+         else
+         {
+             fclose (pSenderFile);
+             return sscanf(SenderString, "%f, %f", CurrentInAmp, TempInDegC);
+         }
+     }
+     else
+     {
+        fclose (pSenderFile);
+        return 0;   
+     }
+   }
+    /*
     char getstringFromConsole[1000];
     gets(getstringFromConsole);
     return sscanf(getstringFromConsole, "%f, %f", CurrentInAmp, TempInDegC);
+    */
 }
 
 static void computeMin(float value, float* MinValue)
