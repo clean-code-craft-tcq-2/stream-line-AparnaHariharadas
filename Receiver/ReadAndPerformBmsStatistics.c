@@ -2,7 +2,7 @@
 
 int ReadFromConsole(FILE* pSenderFile, float* CurrentInAmp, float* TempInDegC)
 {
-     return fscanf(pSenderFile, "%f, %f\n", CurrentInAmp, TempInDegC)
+     return fscanf(pSenderFile, "%f, %f\n", CurrentInAmp, TempInDegC);
 }
 
 static void computeMin(float value, float* MinValue)
