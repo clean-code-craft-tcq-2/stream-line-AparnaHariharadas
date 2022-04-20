@@ -14,19 +14,13 @@ int ReadFromConsole(float* CurrentInAmp, float* TempInDegC)
    }
    else 
    {
-     while (fgets (SenderString , (sizeof(SenderString)/sizeof(SenderString[0])) , pSenderFile) != NULL )
+     while (fscanf(SenderString, "%f, %f\n", CurrentInAmp, TempInDegC) > 0 )
      {
-         printf("%s", SenderString);
+         printf("%d, %d\n", *CurrentInAmp, *TempInDegC);
          Breaki++;
          if(Breaki >= 5)
          {
-             fclose (pSenderFile);
-             //return 0;
-         }
-         else
-         {
-             fclose (pSenderFile);
-             //return sscanf(SenderString, "%f, %f", CurrentInAmp, TempInDegC);
+            break;
          }
      }
      //else
