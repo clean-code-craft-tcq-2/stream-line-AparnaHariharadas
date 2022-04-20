@@ -28,6 +28,7 @@ TEST_CASE("Read from the console (Sender) and print statistics for 10 samples")
     char printChar[1000];
     unsigned int NumberOfBmsParameters = 2; // Current, Temperature
     BmsStatisticsStructType BmsParam[NumberOfBmsParameters];
+    memset(printChar, 0, sizeof(printChar));
 
     ReadAndPerformBmsStatistics(printChar, BmsParam, NumberOfBmsParameters, (*ReadFromConsoleStub)); //FUT
     
