@@ -1,39 +1,8 @@
 #include "PerformBmsStatistics.h"
 
-int ReadFromConsole(float* CurrentInAmp, float* TempInDegC)
+int ReadFromConsole(FILE* pSenderFile, float* CurrentInAmp, float* TempInDegC)
 {
-   FILE * pSenderFile = NULL;
-   char SenderString[1000];
-   static int Breaki = 0;
-
-   pSenderFile = fopen ("SenderCheck.txt" , "r");
-   if (pSenderFile == NULL)
-   {
-       perror ("Error opening file");
-       return 0;
-   }
-   else 
-   {
-     while (fscanf(pSenderFile, "%f, %f\n", CurrentInAmp, TempInDegC) > 0 )
-     {
-         printf("%f, %f\n", *CurrentInAmp, *TempInDegC);
-         Breaki++;
-         if(Breaki >= 5)
-         {
-            break;
-         }
-     }
-     //else
-     {
-        fclose (pSenderFile);
-        return 0;   
-     }
-   }
-    /*
-    char getstringFromConsole[1000];
-    gets(getstringFromConsole);
-    return sscanf(getstringFromConsole, "%f, %f", CurrentInAmp, TempInDegC);
-    */
+     return fscanf(pSenderFile, "%f, %f\n", CurrentInAmp, TempInDegC)
 }
 
 static void computeMin(float value, float* MinValue)
@@ -102,7 +71,7 @@ void outputBmsParametersToConsole(char* ToConsole, BmsStatisticsStructType* Curr
     strcat(ToConsole, localString);
 }
 
-void ReadAndPerformBmsStatistics(char* ToConsole, BmsStatisticsStructType* BmsParam, unsigned int NumberOfBmsParameters, int (*ReadInput)(float*, float*))
+void ReadAndPerformBmsStatistics(FILE* pSenderFile, char* ToConsole, BmsStatisticsStructType* BmsParam, unsigned int NumberOfBmsParameters)
 {
     float BmsValues[NumberOfBmsParameters];
     int NumberOfDataReadFromConsole = 0;
@@ -117,7 +86,7 @@ void ReadAndPerformBmsStatistics(char* ToConsole, BmsStatisticsStructType* BmsPa
     strcat(ToConsole, localString); // copy the header first
 
     do{
-        NumberOfDataReadFromConsole = (*ReadInput)(&BmsValues[0], &BmsValues[1]);
+        NumberOfDataReadFromConsole = ReadFromConsole(pSenderFile, &BmsValues[0], &BmsValues[1]);
         for(index = 0; index < NumberOfBmsParameters; index++)
         {
             BmsParam[index].NumberOfValuesInStream++;
