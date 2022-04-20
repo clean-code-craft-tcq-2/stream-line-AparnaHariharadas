@@ -74,7 +74,6 @@ void outputBmsParametersToConsole(char* ToConsole, BmsStatisticsStructType* Curr
 void ReadAndPerformBmsStatistics(FILE* pSenderFile, char* ToConsole, BmsStatisticsStructType* BmsParam, unsigned int NumberOfBmsParameters)
 {
     float BmsValues[NumberOfBmsParameters];
-    int NumberOfDataReadFromConsole = 0;
     unsigned int index = 0;
     char localString[200] = {"MinCurrent, MaxCurrent, AvgCurrent, MinTemperature, MaxTemperature, AvgTemperature\n"};
 
@@ -85,7 +84,7 @@ void ReadAndPerformBmsStatistics(FILE* pSenderFile, char* ToConsole, BmsStatisti
     }
     strcat(ToConsole, localString); // copy the header first
 
-    while(ReadFromConsole(pSenderFile, &BmsValues[0], &BmsValues[1] > 0)
+    while(ReadFromConsole(pSenderFile, &BmsValues[0], &BmsValues[1]) > 0)
     {
         for(index = 0; index < NumberOfBmsParameters; index++)
         {
