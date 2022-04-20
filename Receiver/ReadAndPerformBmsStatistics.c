@@ -95,6 +95,5 @@ void ReadAndPerformBmsStatistics(char* ToConsole, BmsStatisticsStructType* BmsPa
             computeMovingAverage(BmsValues[index],  &BmsParam[index]);
         }
         outputBmsParametersToConsole(ToConsole, &BmsParam[0], &BmsParam[1]);
-    }
-    while(NumberOfDataReadFromConsole > 0);
+    }while(NumberOfDataReadFromConsole > 0);
 }
