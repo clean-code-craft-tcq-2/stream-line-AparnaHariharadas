@@ -3,7 +3,7 @@
 
 int main()
 {
-  char printChar[1000];
+  char printChar[10000];
   unsigned int NumberOfBmsParameters = 2; // Current, Temperature
   BmsStatisticsStructType BmsParam[NumberOfBmsParameters];
 
