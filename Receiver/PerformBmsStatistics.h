@@ -16,8 +16,8 @@ typedef struct{
     int NumberOfValuesInStream;
 }BmsStatisticsStructType;
 
-extern int ReadFromConsole(float* CurrentInAmp, float* TempInDegC);
+extern int ReadFromConsole(FILE* pSenderFile, float* CurrentInAmp, float* TempInDegC);
 extern void shiftValues(float* array);
 extern void computeMovingAverage(float value, BmsStatisticsStructType* Param);
 extern void ResetToDefault(BmsStatisticsStructType* Param);
-extern void ReadAndPerformBmsStatistics(char* ToConsole, BmsStatisticsStructType* BmsParam, unsigned int NumberOfBmsParameters, int (*ReadInput)(float*, float*));
+extern void ReadAndPerformBmsStatistics(FILE* pSenderFile, char* ToConsole, BmsStatisticsStructType* BmsParam, unsigned int NumberOfBmsParameters);
