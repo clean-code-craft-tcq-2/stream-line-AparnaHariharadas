@@ -2,7 +2,9 @@
 
 int ReadFromConsole(float* CurrentInAmp, float* TempInDegC)
 {
-    return scanf("%f, %f", CurrentInAmp, TempInDegC);
+    char getstringFromConsole[1000];
+    gets(getstringFromConsole);
+    return sscanf(getstringFromConsole, "%f, %f", CurrentInAmp, TempInDegC);
 }
 
 static void computeMin(float value, float* MinValue)
