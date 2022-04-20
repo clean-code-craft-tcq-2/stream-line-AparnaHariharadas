@@ -85,8 +85,8 @@ void ReadAndPerformBmsStatistics(FILE* pSenderFile, char* ToConsole, BmsStatisti
     }
     strcat(ToConsole, localString); // copy the header first
 
-    do{
-        NumberOfDataReadFromConsole = ReadFromConsole(pSenderFile, &BmsValues[0], &BmsValues[1]);
+    while(ReadFromConsole(pSenderFile, &BmsValues[0], &BmsValues[1] > 0)
+    {
         for(index = 0; index < NumberOfBmsParameters; index++)
         {
             BmsParam[index].NumberOfValuesInStream++;
@@ -95,5 +95,5 @@ void ReadAndPerformBmsStatistics(FILE* pSenderFile, char* ToConsole, BmsStatisti
             computeMovingAverage(BmsValues[index],  &BmsParam[index]);
         }
         outputBmsParametersToConsole(ToConsole, &BmsParam[0], &BmsParam[1]);
-    }while(NumberOfDataReadFromConsole > 0);
+    }
 }
