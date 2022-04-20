@@ -14,9 +14,9 @@ int ReadFromConsole(float* CurrentInAmp, float* TempInDegC)
    }
    else 
    {
-     while (fscanf(SenderString, "%f, %f\n", CurrentInAmp, TempInDegC) > 0 )
+     while (fscanf(pSenderFile, "%f, %f\n", CurrentInAmp, TempInDegC) > 0 )
      {
-         printf("%d, %d\n", *CurrentInAmp, *TempInDegC);
+         printf("%f, %f\n", *CurrentInAmp, *TempInDegC);
          Breaki++;
          if(Breaki >= 5)
          {
