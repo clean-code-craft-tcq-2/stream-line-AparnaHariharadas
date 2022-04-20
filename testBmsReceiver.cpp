@@ -15,14 +15,14 @@ TEST_CASE("Read from the console (Sender) and print statistics for 10 samples")
     ptrToTestFile = fopen("testFile.txt","r");
 
     ReadAndPerformBmsStatistics(ptrToTestFile, printChar, BmsParam, NumberOfBmsParameters); //FUT
-    /*
+    
     //Checking parameters after 10 samples are received
     REQUIRE(BmsParam[0].MaxValue == 10.5); //Max current
     REQUIRE(BmsParam[0].MinValue == 1.5); //Min current
     REQUIRE(BmsParam[0].MovingAvg == 8.5); //Avg current
     REQUIRE(BmsParam[1].MaxValue == 19.5); //Max Temperature
     REQUIRE(BmsParam[1].MinValue == 10.5); //Min Temperature
-    REQUIRE(BmsParam[1].MovingAvg == 17.5); //Avg Temperature*/
+    REQUIRE(BmsParam[1].MovingAvg == 17.5); //Avg Temperature
 
     char expectedOutput[1000] = {"MinCurrent, MaxCurrent, AvgCurrent, MinTemperature, MaxTemperature, AvgTemperature\n\
 1.50, 1.50, 0.00, 10.50, 10.50, 0.00\n\
